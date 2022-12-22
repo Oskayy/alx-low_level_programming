@@ -5,7 +5,7 @@
  * @n: num of times the char is printed
  */
 
-void print_line(int n);
+void print_line(int n)
 {
 	if (n <=)
 	{
