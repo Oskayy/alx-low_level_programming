@@ -3,7 +3,7 @@
 /**
  * main - checks the code
  * Return - Always 0
- * @n - input value
+ * @n: input value
  */
 
 void reset_to_98(int *n);
@@ -14,6 +14,7 @@ void reset_to_98(int *n);
 int main(void)
 {
 	int n = 402;
+
 	reset_to_98(&n);
 	_putchar(n);
 	_putchar('\n');
