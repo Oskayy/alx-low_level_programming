@@ -1,4 +1,6 @@
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
 /**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
@@ -6,12 +8,12 @@
  */
 void print_all(const char * const format, ...)
 {
+	va_list valist;
 	unsigned int i = 0, j, c = 0;
-	va_list args;
-	char *s;
-	const cahr t_arg[] = "cifs";
+	char *str;
+	const char t_arg[] = "cifs";
 
-	va_start(args, format);
+	va_start(valist, format);
 	while (format && format[i])
 	{
 		j = 0;
@@ -19,24 +21,24 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == t_arg[j] && c)
 			{
-				printf(", ");
+				printf(",  ");
 				break;
 			} j++;
 		}
 		switch (format[i])
 		{
 		case 'c':
-			printf("%s%c", va_arg(args, int));
+			printf("%c", va_arg(valist, int));
 				break;
 		case 'i':
-			printf("%s%d", va_arg(args, int));
+			printf("%d", va_arg(valist, int));
 			break;
 		case 'f':
-			printf("%s%f", va_arg(args, double));
+			printf("%f", va_arg(valist, double));
 			break;
 		case 's':
-			s = va_arg(args, char *), c = 1;
-			if (!s)
+			str = va_arg(valist, char *), c = 1;
+			if (!str)
 			{
 				printf("nil");
 				break;
